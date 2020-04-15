@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+    <form action="" method="post" novalidate>
+        {{form.hidden_tag()}}
+        <fieldset>
+            <legend>Modify Employee</legend>
+            <table>
+                <tr>
+                    <td>{{form.id.label}}</td>
+                    <td>{{form.id(size=32, autofocus=true)}}</td>
+                    {% for error in form.id.errors %}
+                        <td colspan="2"><span
+                            style="color:red;">{{error}}</span></td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>{{form.ed.label}}</td>
+                    <td>{{form.ed(size=32)}}</td>
+                    {% for error in form.ed.errors %}
+                        <td colspan="2"><span
+                            style="color:red;">{{error}}</span></td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>{{form.role.label}}</td>
+                    <td>{{form.role(size=32)}}</td>
+                    {% for error in form.role.errors %}
+                        <td colspan="2"><span
+                            style="color:red;">{{error}}</span></td>
+                    {% endfor %}
+                </tr>
+                <tr><td colspan="2">{{form.submit()}}</td></tr>
+            </table>
+        </fieldset>
+    </form>
+{% endblock %}
